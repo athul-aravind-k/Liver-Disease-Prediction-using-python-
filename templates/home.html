@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Liver Disease</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> 
+
+</head>
+
+<body>
+ <div "class="login">
+	<h1>Liver Disease Prediction</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+      <input type="text" name="age" placeholder="Age" required="required" /><br>
+    	<input type="text" name="TotalBilrubin" placeholder="Total Bilrubin" required="required" /><br>
+        <input type="text" name="DirectBilirubin" placeholder="Direct Bilirubin" required="required" /><br>
+        <input type="text" name="AlkalinePhosphotase" placeholder="Alkaline Phosphotase" required="required" /><br>
+        <input type="text" name="AlamineAminotransferase" placeholder="Alamine Aminotransferase" required="required" /><br>
+	<input type="text" name="AspartateAminotransferase" placeholder="Aspartate Aminotransferase" required="required" /><br>
+        <input type="text" name="TotalProtiens" placeholder="Total Protiens" required="required" /><br>
+        <input type="text" name="Albumin1" placeholder="Albumin" required="required" /><br>
+        <input type="text" name="AlbuminandGlobulinRatio" placeholder="Albumin and GlobulinRatio" required="required" /><br>
+	<label for="gender">Choose a Gender:</label>
+	<select name="gender" id="gender">
+	<option value="Male">male</option>
+	<option value="Female">female</option>
+	</select>
+	
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>  
+   
+
+ </div>
+ {{prediction_text}}
+ <br> {{prediction1}}
+
+</body>
+</html>
